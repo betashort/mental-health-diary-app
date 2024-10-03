@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/mental-health-diary-app/static/css/main.0f023058.css",
-    "main.js": "/mental-health-diary-app/static/js/main.9c4bda70.js",
+    "main.css": "/mental-health-diary-app/static/css/main.7ef1443d.css",
+    "main.js": "/mental-health-diary-app/static/js/main.33504125.js",
     "static/js/206.5cc09115.chunk.js": "/mental-health-diary-app/static/js/206.5cc09115.chunk.js",
-    "static/media/mhd-image.png": "/mental-health-diary-app/static/media/mhd-image.8ddc1ef281143fbd69c9.png",
+    "static/media/MHD-image.png": "/mental-health-diary-app/static/media/MHD-image.2d25cb20b0129fa591c4.png",
     "index.html": "/mental-health-diary-app/index.html"
   },
   "entrypoints": [
-    "static/css/main.0f023058.css",
-    "static/js/main.9c4bda70.js"
+    "static/css/main.7ef1443d.css",
+    "static/js/main.33504125.js"
   ]
 }

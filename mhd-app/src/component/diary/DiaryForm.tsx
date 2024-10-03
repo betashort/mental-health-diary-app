@@ -2,7 +2,7 @@ import React from 'react'
 
 function DiaryForm() {
   return (
-    <div>DiaryCalendar</div>
+    <div>DiaryFom</div>
   )
 }
 

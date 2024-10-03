@@ -3,8 +3,21 @@ import React, { useCallback, useState } from "react";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import interactionPlugin, { DateClickArg } from "@fullcalendar/interaction";
-import Modal from "react-modal";
+import { Box, Modal } from "@mui/material";
 import DiaryModalTab from "../component/diary/DiaryModalTab";
+
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: '80%',
+  hight: '800px',
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  p: 4,
+};
 
 function DiaryPage() {
   const [modalFlag, setModalFlag] = useState(false);
@@ -29,13 +42,20 @@ function DiaryPage() {
           dateClick={handleDateClick}
         />
       </div>
-      <Modal isOpen={modalFlag}>
-        
-          <h2>モーダル</h2>
-          <div className="flex justify-end">
+      <div>
+      <Modal
+        open={modalFlag}
+        // onClose={CloseModal}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          <DiaryModalTab />
           <button onClick={CloseModal}>閉じる</button>
-          </div>
+        </Box>
+        
       </Modal>
+    </div>
 
     </>
   );
