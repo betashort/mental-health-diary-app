@@ -1,9 +1,9 @@
 import React from "react";
-import MHDImage from "../asset/image/mhd-image.png";
+import MHDImage from "../asset/image/MHD-image.png";
 function DashboardPage() {
   return (
     <>
-      <div className="w-full h-svh">
+      <div className="w-full h-lvh mb-10">
         <div className="flex justify-center items-center">
           <img src={MHDImage} alt="mental-health-diary-image" />
         </div>
@@ -12,7 +12,7 @@ function DashboardPage() {
             気分を記録するためのアプリです
           </h2>
           <p className="text-center">
-            ＊作成者が個人的に調べた内容のため、エビデンスはありません。
+            ＊作成者が個人的に調べた内容です。
             <br />
             ＊開発中です。
             <br />

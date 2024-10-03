@@ -1,9 +1,9 @@
 import React from 'react'
 
-function DiaryCalendar() {
+function DiaryForm() {
   return (
     <div>DiaryCalendar</div>
   )
 }
 
-export default DiaryCalendar
+export default DiaryForm
