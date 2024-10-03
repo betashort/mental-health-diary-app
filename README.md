@@ -71,7 +71,7 @@ module.exports = {
 ## MUIのインストール
 
 ```bash
-npm install @mui/material @emotion/react @emotion/styled @mui/icons-material
+npm install @mui/material @emotion/react @emotion/styled @mui/icons-material npm install @mui/lab 
 ```
 
 ### Drawer
@@ -86,4 +86,11 @@ npm i axios
 npm install @fullcalendar/react @fullcalendar/core @fullcalendar/daygrid
 ```
 
+```bash
+npm install --save react-modal
+```
+
+```bash
+npm install recharts
+```
 ### Django REST Framework
