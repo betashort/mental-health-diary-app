@@ -1,7 +1,6 @@
 import { TabContext, TabList, TabPanel } from '@mui/lab';
 import { Box, Tab } from '@mui/material';
 import React from 'react'
-import Diary from './diary';
 import DiaryForm from './DiaryForm';
 
 
