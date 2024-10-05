@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/mhd-app.betashort-lab.com/static/css/main.40385929.css",
-    "main.js": "/mhd-app.betashort-lab.com/static/js/main.31753cb1.js",
-    "static/js/206.5cc09115.chunk.js": "/mhd-app.betashort-lab.com/static/js/206.5cc09115.chunk.js",
-    "static/media/MHD-image.png": "/mhd-app.betashort-lab.com/static/media/MHD-image.2d25cb20b0129fa591c4.png",
-    "index.html": "/mhd-app.betashort-lab.com/index.html"
+    "main.css": "/static/css/main.40385929.css",
+    "main.js": "/static/js/main.157ae99c.js",
+    "static/js/206.5cc09115.chunk.js": "/static/js/206.5cc09115.chunk.js",
+    "static/media/MHD-image.png": "/static/media/MHD-image.2d25cb20b0129fa591c4.png",
+    "index.html": "/index.html"
   },
   "entrypoints": [
     "static/css/main.40385929.css",
-    "static/js/main.31753cb1.js"
+    "static/js/main.157ae99c.js"
   ]
 }

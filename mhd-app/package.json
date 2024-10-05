@@ -61,5 +61,5 @@
     "@types/react-modal": "^3.16.3",
     "tailwindcss": "^3.4.13"
   },
-  "homepage": "mhd-app.betashort-lab.com"
+  "homepage": "https://mhd-app.betashort-lab.com"
 }
