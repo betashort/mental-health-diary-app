@@ -93,4 +93,9 @@ npm install --save react-modal
 ```bash
 npm install recharts
 ```
+
+```bash
+npm install @dnd-kit/core
+```
+
 ### Django REST Framework
