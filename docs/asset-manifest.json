@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/mental-health-diary-app/static/css/main.7ef1443d.css",
-    "main.js": "/mental-health-diary-app/static/js/main.ca3acfb5.js",
-    "static/js/206.5cc09115.chunk.js": "/mental-health-diary-app/static/js/206.5cc09115.chunk.js",
-    "static/media/MHD-image.png": "/mental-health-diary-app/static/media/MHD-image.2d25cb20b0129fa591c4.png",
-    "index.html": "/mental-health-diary-app/index.html"
+    "main.css": "/mhd-app.betashort-lab.com/static/css/main.40385929.css",
+    "main.js": "/mhd-app.betashort-lab.com/static/js/main.31753cb1.js",
+    "static/js/206.5cc09115.chunk.js": "/mhd-app.betashort-lab.com/static/js/206.5cc09115.chunk.js",
+    "static/media/MHD-image.png": "/mhd-app.betashort-lab.com/static/media/MHD-image.2d25cb20b0129fa591c4.png",
+    "index.html": "/mhd-app.betashort-lab.com/index.html"
   },
   "entrypoints": [
-    "static/css/main.7ef1443d.css",
-    "static/js/main.ca3acfb5.js"
+    "static/css/main.40385929.css",
+    "static/js/main.31753cb1.js"
   ]
 }

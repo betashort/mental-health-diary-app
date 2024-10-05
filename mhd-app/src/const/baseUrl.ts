@@ -1,1 +1,1 @@
-export const BASE_URL = "/mental-health-diary-app";
+export const BASE_URL = "/";

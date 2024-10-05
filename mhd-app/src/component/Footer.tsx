@@ -9,19 +9,19 @@ function Footer() {
         <div className="grid grid-cols-3">
           <div className="h-10 border-r-2 flex justify-center items-center text-white">
             <div className="">
-              <Link to={BASE_URL + '/diary'}>Diary</Link>
+              <Link to={BASE_URL + 'diary'}>Diary</Link>
             </div>
           </div>
           
             <div className="h-10 flex justify-center items-center text-white">
-            <Link to={BASE_URL + '/activity-graph'}>
+            <Link to={BASE_URL + 'activity-graph'}>
               <div className="">活動グラフ</div>
               </Link>
             </div>
           
           <div className="h-10 border-l-2 flex justify-center items-center text-white ">
             <div className="">
-              <Link to={BASE_URL + '/feeling-graph'}>気分グラフ</Link>
+              <Link to={BASE_URL + 'feeling-graph'}>気分グラフ</Link>
 
             </div>
           </div>

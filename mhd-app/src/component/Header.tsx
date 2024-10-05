@@ -12,7 +12,7 @@ function Header() {
         <nav>
           <ul>
             <li className="mr-4 text-xl text-white">
-              <Link to={BASE_URL+"/tips"}>Tips</Link>
+              <Link to={BASE_URL+"tips"}>Tips</Link>
             </li>
           </ul>
         </nav>

@@ -5,14 +5,13 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import interactionPlugin, { DateClickArg } from "@fullcalendar/interaction";
 import { Box, Modal } from "@mui/material";
 import DiaryModalTab from "../component/diary/DiaryModalTab";
-import { StringLiteral } from "typescript";
 
 const style = {
   position: "absolute",
-  top: "30%",
-  left: "40%",
+  top: "50%",
+  left: "50%",
   transform: "translate(-50%, -50%)",
-  width: "80%",
+  width: "90%",
   hight: "800px",
   bgcolor: "background.paper",
   border: "2px solid #000",

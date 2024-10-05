@@ -17,10 +17,10 @@ function App() {
       <div className='w-full'>
         <Routes>
           <Route path={BASE_URL} element={<DashboardPage />}/>
-          <Route path={BASE_URL + '/diary'} element = { <DiaryPage />} />
-          <Route path={BASE_URL + '/activity-graph'} element= { <ActivityGraphPage />} />
-          <Route path= {BASE_URL + '/feeling-graph'} element= { <FeelingGraphPage />} />
-          <Route path= {BASE_URL + '/tips'} element = {<TipsPage />} />
+          <Route path={BASE_URL + 'diary'} element = { <DiaryPage />} />
+          <Route path={BASE_URL + 'activity-graph'} element= { <ActivityGraphPage />} />
+          <Route path= {BASE_URL + 'feeling-graph'} element= { <FeelingGraphPage />} />
+          <Route path= {BASE_URL + 'tips'} element = {<TipsPage />} />
         </Routes>
       </div>
       <Footer />
