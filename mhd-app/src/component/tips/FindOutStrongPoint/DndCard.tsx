@@ -7,7 +7,7 @@ export type CardType = {
   title: string;
 };
 
-const Card: FC<CardType> = ({ id, title }) => {
+const DndCard: FC<CardType> = ({ id, title }) => {
   const { attributes, listeners, setNodeRef, transform } = useSortable({
     id: id
   });
@@ -27,4 +27,4 @@ const Card: FC<CardType> = ({ id, title }) => {
   );
 };
 
-export default Card;
+export default DndCard;

@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/static/css/main.40385929.css",
-    "main.js": "/static/js/main.157ae99c.js",
+    "main.css": "/static/css/main.93f7416f.css",
+    "main.js": "/static/js/main.d672bbac.js",
     "static/js/206.5cc09115.chunk.js": "/static/js/206.5cc09115.chunk.js",
     "static/media/MHD-image.png": "/static/media/MHD-image.2d25cb20b0129fa591c4.png",
     "index.html": "/index.html"
   },
   "entrypoints": [
-    "static/css/main.40385929.css",
-    "static/js/main.157ae99c.js"
+    "static/css/main.93f7416f.css",
+    "static/js/main.d672bbac.js"
   ]
 }

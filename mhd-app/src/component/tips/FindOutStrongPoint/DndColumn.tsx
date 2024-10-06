@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { SortableContext, rectSortingStrategy } from "@dnd-kit/sortable";
 import { useDroppable } from "@dnd-kit/core";
-import Card, { CardType } from "./Card";
+import DndCard, { CardType } from "./DndCard";
 
 export type ColumnType = {
   id: string;
@@ -9,7 +9,7 @@ export type ColumnType = {
   cards: CardType[];
 };
 
-const Column: FC<ColumnType> = ({ id, title, cards }) => {
+const DndColumn: FC<ColumnType> = ({ id, title, cards }) => {
   const { setNodeRef } = useDroppable({ id: id });
   return (
     // ソートを行うためのContextです。
@@ -18,11 +18,11 @@ const Column: FC<ColumnType> = ({ id, title, cards }) => {
       <div className="m-2 border-2 border-collapse" ref={setNodeRef}>
         <p className=" ">{title}</p>
         {cards.map((card) => (
-          <Card key={card.id} id={card.id} title={card.title}></Card>
+          <DndCard key={card.id} id={card.id} title={card.title}></DndCard>
         ))}
       </div>
     </SortableContext>
   );
 };
 
-export default Column;
+export default DndColumn;

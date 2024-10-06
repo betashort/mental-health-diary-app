@@ -9,14 +9,14 @@ import {
   DragOverEvent,
 } from "@dnd-kit/core";
 import { arrayMove, sortableKeyboardCoordinates } from "@dnd-kit/sortable";
-import Column, { ColumnType } from "./Column";
+import DndColumn, { ColumnType } from "../../component/tips/FindOutStrongPoint/DndColumn";
 import React, { useState } from "react";
 
 //https://docs.dndkit.com/introduction/getting-started
 //https://zenn.dev/castingone_dev/articles/dndkit20231031
 //https://zenn.dev/aldagram_tech/articles/c2cf248bd016fc
 //https://zenn.dev/hotari/articles/4c186b83b15975
-function FindOutStrongPoint() {
+function FindOutStrongPointPage() {
   const data: ColumnType[] = [
     {
       id: "Thinking",
@@ -169,12 +169,12 @@ function FindOutStrongPoint() {
           // style={{ display: "flex", flexDirection: "row", padding: "20px" }}
         >
           {columns.map((column) => (
-            <Column
+            <DndColumn
               key={column.id}
               id={column.id}
               title={column.title}
               cards={column.cards}
-            ></Column>
+            ></DndColumn>
           ))}
         </div>
       </DndContext>
@@ -182,4 +182,4 @@ function FindOutStrongPoint() {
   );
 }
 
-export default FindOutStrongPoint;
+export default FindOutStrongPointPage;
