@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import {
   closestCorners,
   DndContext,
@@ -9,13 +10,14 @@ import {
   DragOverEvent,
 } from "@dnd-kit/core";
 import { arrayMove, sortableKeyboardCoordinates } from "@dnd-kit/sortable";
+//component
 import DndColumn, { ColumnType } from "../../component/tips/FindOutStrongPoint/DndColumn";
-import React, { useState } from "react";
 
-//https://docs.dndkit.com/introduction/getting-started
-//https://zenn.dev/castingone_dev/articles/dndkit20231031
-//https://zenn.dev/aldagram_tech/articles/c2cf248bd016fc
-//https://zenn.dev/hotari/articles/4c186b83b15975
+//参考
+// https://docs.dndkit.com/introduction/getting-started
+// https://zenn.dev/castingone_dev/articles/dndkit20231031
+// https://zenn.dev/aldagram_tech/articles/c2cf248bd016fc
+// https://zenn.dev/hotari/articles/4c186b83b15975
 function FindOutStrongPointPage() {
   const data: ColumnType[] = [
     {
@@ -148,8 +150,6 @@ function FindOutStrongPointPage() {
     })
   );
   return (
-    // 今回は長くなってしまうためsensors、collisionDetectionなどに関しての説明は省きます。
-    // ひとまずは一番使われていそうなものを置いています。
     <>
       <div>
         <h2>自分の強みを見つける方法</h2>
@@ -166,7 +166,6 @@ function FindOutStrongPointPage() {
       >
         <div
           className="App m-2 grid grid-cols-2 text-center"
-          // style={{ display: "flex", flexDirection: "row", padding: "20px" }}
         >
           {columns.map((column) => (
             <DndColumn

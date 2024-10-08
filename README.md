@@ -83,7 +83,7 @@ npm i axios
 ```
 
 ```bash
-npm install @fullcalendar/react @fullcalendar/core @fullcalendar/daygrid
+npm install @fullcalendar/react @fullcalendar/core @fullcalendar/daygrid @fullcalendar/interaction
 ```
 
 ```bash

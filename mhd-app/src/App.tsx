@@ -14,6 +14,8 @@ import FeelingGraphPage from './pages/FeelingGraphPage';
 import TipsPage from './pages/TipsPage';
 import FindOutStrongPointPage from './pages/tips/FindOutStrongPointPage';
 import NotFoundPage from './pages/NotFoundPage';
+
+
 function App() {
   return (
     <div className="App">
