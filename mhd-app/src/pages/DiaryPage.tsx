@@ -5,6 +5,9 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import interactionPlugin, { DateClickArg } from "@fullcalendar/interaction";
 import { Box, Modal } from "@mui/material";
 import DiaryModalTab from "../component/diary/DiaryModalTab";
+import { IDiaryInfo } from "../interface/diaryInfo";
+import { Description } from "@mui/icons-material";
+import axios from "axios";
 
 const style = {
   position: "absolute",
@@ -38,23 +41,40 @@ interface IDiaryEventDateContext {
   setEventDate: React.Dispatch<React.SetStateAction<string>>;
 }
 
-export const EventDateContext = createContext({} as IDiaryEventDateContext);
+interface IDiaryTitleContext {
+  diaryTitle: string;
+  setDiaryTitle: React.Dispatch<React.SetStateAction<string>>;
+}
+
+interface IDiaryDescriptionContext {
+  diaryDescription: string;
+  setDiaryDescription: React.Dispatch<React.SetStateAction<string>>;
+}
+//useContext
+export const eventDateContext = createContext({} as IDiaryEventDateContext);
+export const diaryTitleContext = createContext({} as IDiaryTitleContext);
+export const diaryDescriptionContext = createContext(
+  {} as IDiaryDescriptionContext
+);
 
 function DiaryPage() {
   //modal Flag
   const [modalFlag, setModalFlag] = useState(false);
   //EventDate
   const [eventDate, setEventDate] = useState("");
-  
-  // const [eventData, setEventData] = useState("");
-  //useContext Event Date
-  // const DiaryEventData = createContext();
+  const [diaryTitle, setDiaryTitle] = useState("");
+  const [diaryDescription, setDiaryDescription] = useState("");
 
+  const FormatStates = () => {
+    setDiaryTitle("");
+    setDiaryDescription("");
+  };
   const OpenModal = () => {
     setModalFlag(true);
   };
   const CloseModal = () => {
     setModalFlag(false);
+    FormatStates();
   };
 
   const handleDateClick = useCallback((arg: DateClickArg) => {
@@ -62,6 +82,15 @@ function DiaryPage() {
     OpenModal();
     console.log(eventDate);
   }, []);
+
+  const GetDiaryEvent = () => {
+    //axios.get()
+  };
+
+  const PostDiaryEvent = () => {
+    //axios.post()
+    FormatStates();
+  };
 
   return (
     <>
@@ -71,6 +100,7 @@ function DiaryPage() {
           locale="ja"
           initialView="dayGridMonth"
           dateClick={handleDateClick}
+          // events={}
         />
       </div>
       <div>
@@ -82,15 +112,25 @@ function DiaryPage() {
           <Box sx={style}>
             {/* <DiaryEventData.Provider value={setEventData}> */}
             {eventDate}
-            <EventDateContext.Provider value={{ eventDate, setEventDate }}>
-              <DiaryModalTab />
-            </EventDateContext.Provider>
+            <eventDateContext.Provider value={{ eventDate, setEventDate }}>
+              <diaryTitleContext.Provider value={{ diaryTitle, setDiaryTitle }}>
+                <diaryDescriptionContext.Provider
+                  value={{ diaryDescription, setDiaryDescription }}
+                >
+                  <DiaryModalTab />
+                </diaryDescriptionContext.Provider>
+              </diaryTitleContext.Provider>
+            </eventDateContext.Provider>
             {/* </DiaryEventData.Provider> */}
-            <button onClick={CloseModal}>保存する</button>
-            <button onClick={CloseModal}>閉じる</button>
+            <div className="flex justify-between items-center">
+              <button onClick={CloseModal}>保存する</button>
+              <button onClick={CloseModal}>閉じる</button>
+            </div>
           </Box>
         </Modal>
       </div>
+      {diaryTitle}
+      {diaryDescription}
     </>
   );
 }

@@ -1,37 +1,35 @@
-import React, { useContext, useState } from "react";
-import { EventDateContext } from "../../pages/DiaryPage";
-import { text } from "stream/consumers";
+import React, { useContext, useEffect, useState } from "react";
+import { diaryTitleContext, diaryDescriptionContext, eventDateContext } from "../../pages/DiaryPage";
 
 function DiaryForm() {
-  const [textData, setTextData] = useState("");
-  const { eventDate, setEventDate } = useContext(EventDateContext);
+  const { eventDate, setEventDate } = useContext(eventDateContext);
+  const { diaryTitle, setDiaryTitle } = useContext(diaryTitleContext);
+  const { diaryDescription, setDiaryDescription } = useContext(diaryDescriptionContext);
+  const HandleDiaryInfo = () => {};
 
-  const HandleTextData = () => {
-    setTextData(textData);
-    console.log(textData);
-  };
   return (
     <div>
-      {eventDate}
       <div className="w-full">
         <form>
-          <span>Title</span>
+          <span>タイトル</span>
           <input
             className="w-full p-2 border-2"
             type="text"
-            value={"a"}
-            onChange={(e) => setTextData(e.target.value)}
+            value={diaryTitle}
+            onChange={(e) => setDiaryTitle(e.target.value)}
           />
           <span>内容</span>
           <textarea
             className="w-full h-[200px] p-2 border-2"
             id="message"
             name="message"
-            value={textData}
-            onChange={(e) => setTextData(e.target.value)}
+            value={diaryDescription}
+            onChange={
+              (e) => setDiaryDescription(e.target.value)
+
+            }
           />
         </form>
-        <span>{textData}</span>
       </div>
     </div>
   );
