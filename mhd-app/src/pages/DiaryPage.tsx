@@ -1,13 +1,15 @@
 import React, { useCallback, createContext, useState } from "react";
 
 import FullCalendar from "@fullcalendar/react";
+import { EventClickArg } from "@fullcalendar/core";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import interactionPlugin, { DateClickArg } from "@fullcalendar/interaction";
 import { Box, Modal } from "@mui/material";
 import DiaryModalTab from "../component/diary/DiaryModalTab";
 import { IDiaryInfo } from "../interface/diaryInfo";
-import { Description } from "@mui/icons-material";
+import { Description, Flag } from "@mui/icons-material";
 import axios from "axios";
+import { v4 as uuidv4 } from "uuid";
 
 const style = {
   position: "absolute",
@@ -50,6 +52,14 @@ interface IDiaryDescriptionContext {
   diaryDescription: string;
   setDiaryDescription: React.Dispatch<React.SetStateAction<string>>;
 }
+
+interface IEventInfo {
+  id: string;
+  title: string;
+  description: string;
+  start: Date;
+}
+
 //useContext
 export const eventDateContext = createContext({} as IDiaryEventDateContext);
 export const diaryTitleContext = createContext({} as IDiaryTitleContext);
@@ -60,27 +70,33 @@ export const diaryDescriptionContext = createContext(
 function DiaryPage() {
   //modal Flag
   const [modalFlag, setModalFlag] = useState(false);
-  //EventDate
-  const [eventDate, setEventDate] = useState("");
+  //EventData
+  const [eventDate, setEventDate] = useState(new Date());
   const [diaryTitle, setDiaryTitle] = useState("");
   const [diaryDescription, setDiaryDescription] = useState("");
-
+  const [eventInfos, setEventInfo] = useState([] as IEventInfo[]);
   const FormatStates = () => {
     setDiaryTitle("");
     setDiaryDescription("");
   };
   const OpenModal = () => {
     setModalFlag(true);
+    console.log("true")
   };
   const CloseModal = () => {
     setModalFlag(false);
-    FormatStates();
+    console.log("false")
   };
 
-  const handleDateClick = useCallback((arg: DateClickArg) => {
-    setEventDate(String(arg.date));
+  const HandleDateClick = useCallback((arg: DateClickArg) => {
+    setEventDate(arg.date);
     OpenModal();
     console.log(eventDate);
+  }, []);
+
+  const HandleEvemtClick = useCallback((arg: EventClickArg) => {
+    OpenModal();
+    console.log(arg.event);
   }, []);
 
   const GetDiaryEvent = () => {
@@ -88,8 +104,24 @@ function DiaryPage() {
   };
 
   const PostDiaryEvent = () => {
-    //axios.post()
+    //Format EventInfo
+    const eventInfo: IEventInfo = {
+      id: uuidv4(),
+      title: diaryTitle,
+      description: diaryDescription,
+      start: eventDate,
+    };
+    console.log(eventInfo);
+    setEventInfo([...eventInfos, eventInfo]);
+    console.log(eventInfos);
+    //Post EventInfo
+    //PostDiaryEvent();
+    //Get EventInfo
+    GetDiaryEvent();
+    //initialase
     FormatStates();
+    //CloseModal
+    CloseModal();
   };
 
   return (
@@ -99,8 +131,9 @@ function DiaryPage() {
           plugins={[dayGridPlugin, interactionPlugin]}
           locale="ja"
           initialView="dayGridMonth"
-          dateClick={handleDateClick}
-          // events={}
+          dateClick={HandleDateClick}
+          eventClick={HandleEvemtClick}
+          events={eventInfos}
         />
       </div>
       <div>
@@ -110,9 +143,7 @@ function DiaryPage() {
           aria-describedby="modal-modal-description"
         >
           <Box sx={style}>
-            {/* <DiaryEventData.Provider value={setEventData}> */}
-            {eventDate}
-            <eventDateContext.Provider value={{ eventDate, setEventDate }}>
+            {eventDate.toISOString()}
               <diaryTitleContext.Provider value={{ diaryTitle, setDiaryTitle }}>
                 <diaryDescriptionContext.Provider
                   value={{ diaryDescription, setDiaryDescription }}
@@ -120,10 +151,8 @@ function DiaryPage() {
                   <DiaryModalTab />
                 </diaryDescriptionContext.Provider>
               </diaryTitleContext.Provider>
-            </eventDateContext.Provider>
-            {/* </DiaryEventData.Provider> */}
             <div className="flex justify-between items-center">
-              <button onClick={CloseModal}>保存する</button>
+              <button onClick={PostDiaryEvent}>保存する</button>
               <button onClick={CloseModal}>閉じる</button>
             </div>
           </Box>
