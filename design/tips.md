@@ -1,13 +1,14 @@
 # mental-health-diary-app
-1. [リサーチレポート](#リサーチレポート)
-2. [環境構築](#環境構築)
-   1. [Next.js](#nextjs)
-   2. [React](#react)
-3. [react-router-dom](#react-router-dom)
-4. [tailwindをインストールする](#tailwindをインストールする)
-5. [MUIのインストール](#muiのインストール)
-   1. [Drawer](#drawer)
-   2. [Django REST Framework](#django-rest-framework)
+- [mental-health-diary-app](#mental-health-diary-app)
+  - [リサーチレポート](#リサーチレポート)
+  - [環境構築](#環境構築)
+    - [Next.js](#nextjs)
+    - [React](#react)
+  - [react-router-dom](#react-router-dom)
+  - [tailwindをインストールする](#tailwindをインストールする)
+  - [MUIのインストール](#muiのインストール)
+    - [Drawer](#drawer)
+    - [Django REST Framework](#django-rest-framework)
 
 ## リサーチレポート
 
@@ -18,12 +19,13 @@
 ### Next.js
 
 ```bash
-npx create-react-app@latest mhd-app --template typescript
+npx create-next-app@latest mhd-next
 ```
 
 ### React
 
 ```bash
+npx create-react-app@latest mhd-app --template typescript
 
 ```
 ## react-router-dom
