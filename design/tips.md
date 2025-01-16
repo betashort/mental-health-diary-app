@@ -21,7 +21,6 @@
 ```bash
 npx create-next-app@latest mhd-next
 ```
-
 ### React
 
 ```bash
