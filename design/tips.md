@@ -72,7 +72,11 @@ module.exports = {
 ## MUIのインストール
 
 ```bash
-npm install @mui/material @emotion/react @emotion/styled @mui/icons-material npm install @mui/lab 
+npm install @mui/material @emotion/react @emotion/styled @mui/icons-material @mui/lab 
+```
+
+```bash
+npm install @mui/material-nextjs @emotion/cache
 ```
 
 ### Drawer

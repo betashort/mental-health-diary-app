@@ -4,7 +4,7 @@ export default function Header() {
   return (
     <header>
       <div className="w-full h-10 flex justify-between item-center bg-slate-900">
-        <h1 className="text-2xl text-white">
+        <h1 className="ml-4 text-2xl text-white">
         <Link href="/">MentalHealthDiary App</Link>
         </h1>
         <nav>
