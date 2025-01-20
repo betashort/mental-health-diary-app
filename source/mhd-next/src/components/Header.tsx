@@ -2,8 +2,8 @@ import Link from 'next/link'
 
 export default function Header() {
   return (
-    <>
-      <div className="w-full h-10 flex justify-between items-center bg-slate-900">
+    <header>
+      <div className="w-full h-10 flex justify-between item-center bg-slate-900">
         <h1 className="text-2xl text-white">
         <Link href="/">MentalHealthDiary App</Link>
         </h1>
@@ -15,6 +15,6 @@ export default function Header() {
           </ul>
         </nav>
       </div>
-    </>
+    </header>
   );
 }

@@ -2,15 +2,17 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className=""
-          src="/mhd-image.png"
-          alt="mhd image"
-          width={800}
-          height={800}
-        />
+    <main>
+      <div className="w-full h-lvh mb-10">
+        <div className="flex justify-center items-center">
+          <Image
+            className=""
+            src="/mhd-image.png"
+            alt="mhd image"
+            width={800}
+            height={800}
+          />
+        </div>
         <div>
           <h2 className="p-2 m-2 text-center bg-slate-700 text-white">
             気分を記録するためのアプリです
@@ -50,7 +52,7 @@ export default function Home() {
             </table>
           </div>
         </div>
-      </main >
-    </div >
+      </div>
+    </main >
   );
 }
