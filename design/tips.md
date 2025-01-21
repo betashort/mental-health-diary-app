@@ -103,4 +103,7 @@ npm install recharts
 npm install @dnd-kit/core
 ```
 
+```bash
+npm install prisma @prisma/client
+```
 ### Django REST Framework
