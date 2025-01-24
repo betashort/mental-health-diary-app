@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "build": "yarn widdershins",
+    "widdershins": "widdershins --language_tabs http:Http --expandBody --resolve --summary api.yml -o api.md"
+  },
+  "devDependencies": {
+    "widdershins": "^4.0.1"
+  }
+}
