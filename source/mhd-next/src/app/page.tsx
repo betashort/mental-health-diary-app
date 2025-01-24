@@ -15,7 +15,7 @@ export default function Home() {
         </div>
         <div>
           <h2 className="p-2 m-2 text-center bg-slate-700 text-white">
-            気分を記録するためのアプリです
+            気分を記録するためのアプリです。
           </h2>
           <p className="text-center">
             ＊作成者が個人的に調べた内容です。
