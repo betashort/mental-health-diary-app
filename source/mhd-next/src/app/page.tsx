@@ -23,36 +23,65 @@ export default function Home() {
             ＊開発中です。
             <br />
           </p>
-          <h3 className="p-2 m-2 text-center bg-slate-700 text-white">機能</h3>
-          <div className="discription pl-2 flex justify-center items-center">
-            <table className="">
-              <tbody>
-                <tr>
-                  <th>機能</th>
-                  <th>説明</th>
-                </tr>
+        </div>
 
-                <tr>
-                  <td>Diary</td>
-                  <td>気分を記録します。</td>
-                </tr>
-                <tr>
-                  <td>活動グラフ</td>
-                  <td>活動を数値化してグラフ表示します。</td>
-                </tr>
-                <tr>
-                  <td>気分グラフ</td>
-                  <td>気分を数値化してグラフ表示します。</td>
-                </tr>
-                <tr>
-                  <td>Tips</td>
-                  <td>メンタルヘルスについて調査したことをまとめています。</td>
-                </tr>
-              </tbody>
-            </table>
+        <div className="grid gap-8 sm:grid-cols-2 md:gap-12 xl:grid-cols-3 xl:gap-16">
+          <div className="flex gap-4 md:gap-6">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-indigo-500 text-white shadow-lg md:h-14 md:w-14 md:rounded-xl">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+              </svg>
+            </div>
+
+            <div>
+              <h3 className="mb-2 text-lg font-semibold md:text-xl">Growth</h3>
+              <p className="mb-2 text-gray-500">
+                Filler text is dummy text which has no meaning however looks
+                very similar to real text.
+              </p>
+              <a
+                href="#"
+                className="font-bold text-indigo-500 transition duration-100 hover:text-indigo-600 active:text-indigo-700"
+              >
+                More
+              </a>
+            </div>
+          </div>
+          <div className="flex gap-4 md:gap-6">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-indigo-500 text-white shadow-lg md:h-14 md:w-14 md:rounded-xl">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+              </svg>
+            </div>
+
+            <div>
+              <h3 className="mb-2 text-lg font-semibold md:text-xl">
+                Security
+              </h3>
+              <p className="mb-2 text-gray-500">
+                Filler text is dummy text which has no meaning however looks
+                very similar to real text.
+              </p>
+              <a
+                href="#"
+                className="font-bold text-indigo-500 transition duration-100 hover:text-indigo-600 active:text-indigo-700"
+              >
+                More
+              </a>
+            </div>
           </div>
         </div>
       </div>
-    </main >
+    </main>
   );
 }
