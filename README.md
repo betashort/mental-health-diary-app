@@ -1,6 +1,6 @@
 # mental-health-diary-app
 
-## Document
+## 設計ドキュメント
 
 [設計書](https://github.com/betashort/mental-health-diary-app/blob/main/design/design.md)
 
@@ -8,6 +8,14 @@
 
 [Research](https://github.com/betashort/mental-health-diary-app/blob/main/design/research/research.md)
 
-## Tips
+## 環境構築Tips
 
 [Tips](https://github.com/betashort/mental-health-diary-app/blob/main/design/tips.md)
+
+### 技術スタック
+
+* OAuth
+* NextAuth
+* Fullcalendar
+* Modal by MUI
+* 
