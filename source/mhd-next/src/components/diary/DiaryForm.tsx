@@ -3,10 +3,10 @@ import React, { useContext} from "react";
 import { diaryTitleContext, diaryDescriptionContext, eventDateContext } from "../../app/(pages)/diary/page";
 
 export default function DiaryForm() {
-  const { eventDate, setEventDate } = useContext(eventDateContext);
+  //const { eventDate, setEventDate } = useContext(eventDateContext);
   const { diaryTitle, setDiaryTitle } = useContext(diaryTitleContext);
   const { diaryDescription, setDiaryDescription } = useContext(diaryDescriptionContext);
-  const HandleDiaryInfo = () => {};
+  //const HandleDiaryInfo = () => {};
 
   return (
     <div>
