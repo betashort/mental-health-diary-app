@@ -1,6 +1,6 @@
 "use client";
 import React, { useContext} from "react";
-import { diaryTitleContext, diaryDescriptionContext, eventDateContext } from "../../app/(pages)/diary/page";
+import { diaryTitleContext, diaryDescriptionContext} from "../../app/(pages)/diary/page";
 
 export default function DiaryForm() {
   //const { eventDate, setEventDate } = useContext(eventDateContext);
