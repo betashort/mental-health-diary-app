@@ -11,7 +11,7 @@ export default function Footer() {
             </div>
           </div>
           <div className="h-16 flex justify-center items-center text-white">
-            <Link href="/mental-health-report">
+            <Link href="/mental-report">
               <div className="">メンタルヘルスレポート</div>
             </Link>
           </div>
