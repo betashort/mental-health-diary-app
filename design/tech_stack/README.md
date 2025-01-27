@@ -8,8 +8,9 @@
       1. [Swiper](#swiper)
       2. [Splide](#splide)
    4. [ページネーション](#ページネーション)
-2. [2. 使えるサイト](#2-使えるサイト)
-3. [3. エラー解消](#3-エラー解消)
+2. [認証](#認証)
+3. [2. 使えるサイト](#2-使えるサイト)
+4. [3. エラー解消](#3-エラー解消)
    1. [3.1. Warning: React Hook useCallback has a missing dependency](#31-warning-react-hook-usecallback-has-a-missing-dependency)
 
 
@@ -40,6 +41,9 @@
 
 ### ページネーション
 
+## 認証
+
+* NextAuth
 
 ## 2. 使えるサイト
 
