@@ -1,5 +1,5 @@
 "use client";
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useState } from "react";
 
 import FullCalendar from "@fullcalendar/react";
 import {
@@ -10,32 +10,9 @@ import {
 import dayGridPlugin from "@fullcalendar/daygrid";
 import interactionPlugin, { DateClickArg } from "@fullcalendar/interaction";
 import DiaryModal from "@/components/diary/DiaryModal";
+//import { dateToYYYYMMDD } from "@/libs/dateTransform";
+import { getCalendarData } from "@/services/calendarService";
 import { IEventData } from "@/interface/diary";
-import { dateToYYYYMMDD } from "@/libs/dateTransform";
-
-const tmpEventDataList: IEventData[] = [
-  {
-    id: "1",
-    title: "test1",
-    start: new Date("2025-01-01"),
-    description: "test1",
-    allDay: true,
-  },
-  {
-    id: "2",
-    title: "test2",
-    start: new Date("2025-01-02"),
-    description: "test2",
-    allDay: true,
-  },
-  {
-    id: "3",
-    title: "test3",
-    start: new Date("2025-01-03"),
-    description: "test3",
-    allDay: true,
-  },
-];
 
 export default function Diary() {
   //modal Flag
@@ -45,21 +22,15 @@ export default function Diary() {
     setModalFlag(flag);
   };
   //Event date
-  const [eventDate, setEventDate] = useState(new Date());
-  //Event Data List
-  //const [eventDataList, setEventDataList] = useState([] as IEventData[]);
-  //Update Event Data List
-  // const updateEventDataList = (data: IEventData[]) => {
-  //   setEventDataList([...data]);
-  // };
+  const [eventData, setEventData] = useState({
+    id: "",
+    title: "",
+    description: "",
+    start: new Date(),
+    allDay: true,
+  } as IEventData);
 
-  //Initialise Event Data
-  useEffect(() => {
-    //Get Event Data
-    //getEventData();
-    //setEventDataList([...tmpEventDataList]);
-  }, []);
-
+  //Initialise Event Data List
   //When clicked on the prev/next button
   const getEventDataList = async (
     fetchInfo: EventSourceFuncArg,
@@ -67,15 +38,10 @@ export default function Diary() {
     failureCallback: (error: Error) => void
   ) => {
     try {
-      if (fetchInfo) {
-        console.log(fetchInfo);
-        const start = dateToYYYYMMDD(new Date(fetchInfo.start));
-        const end = dateToYYYYMMDD(new Date(fetchInfo.end));
-        console.log(start);
-        console.log(end);
-      }
+      //const start = dateToYYYYMMDD(new Date(fetchInfo.start));
+      //const end = dateToYYYYMMDD(new Date(fetchInfo.end));
 
-      const response = tmpEventDataList;
+      const response = getCalendarData();
 
       successCallback(
         response.map((event) => {
@@ -94,27 +60,35 @@ export default function Diary() {
       } else {
         failureCallback(new Error("Unknown error"));
       }
-      console.log(error);
     }
   };
 
   //When clicked on the date cell
   const handleDateClick = useCallback((arg: DateClickArg) => {
     setModalFlag(true);
-    setEventDate(arg.date);
-    console.log(modalFlag);
-    console.log(arg);
+    setEventData({
+      id: "",
+      title: "",
+      start: new Date(arg.dateStr),
+      description: "",
+      allDay: true,
+    });
     //react-hooks/exhaustive-deps
   }, []);
 
   //When clicked on the event
   const handleEventClick = useCallback((arg: EventClickArg) => {
     setModalFlag(true);
-    console.log(modalFlag);
-    console.log(arg.event.id);
+    setEventData({
+      id: arg.event.id,
+      title: arg.event.title,
+      start: new Date(arg.event.startStr),
+      description: arg.event.extendedProps.description,
+      allDay: arg.event.allDay,
+    });
     //react-hooks/exhaustive-deps
   }, []);
-
+  console.log(eventData);
   return (
     <div>
       <div className="DiaryCalendar h-svh">
@@ -132,7 +106,7 @@ export default function Diary() {
       </div>
       <div className="DriaryModal">
         <DiaryModal
-          eventDate={eventDate}
+          eventData={eventData}
           modalFlag={modalFlag}
           onUpdateModalFlag={updateModalFlag}
         />

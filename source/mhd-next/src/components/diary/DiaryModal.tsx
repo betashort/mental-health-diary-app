@@ -1,30 +1,9 @@
 import { Modal, Box, Tab } from "@mui/material";
 import { TabPanel, TabList, TabContext } from "@mui/lab";
 import DiaryForm from "./DiaryForm";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { IEventData } from "@/interface/diary";
 
-export default function DiaryModal({
-  eventDate,
-  modalFlag,
-  onUpdateModalFlag,
-}: {
-  eventDate: Date;
-  modalFlag: boolean;
-  onUpdateModalFlag: (flag: boolean) => void;
-}) {
-  //Diary Title
-  const [diaryTitle, setDiaryTitle] = useState<string>("");
-  const updateDiaryTitle = (title: string) => {
-    setDiaryTitle(title);
-  };
-  //Diary Description
-  const [diaryDescription, setDiaryDescription] = useState<string>("");
-  const updateDiaryDescription = (description: string) => {
-    setDiaryDescription(description);
-  };
-
-  //Tab control value
-  const [tabControl, setTabControl] = useState("1");
   //Modal style
   const style = {
     position: "absolute",
@@ -39,11 +18,39 @@ export default function DiaryModal({
     p: 4,
   };
 
+export default function DiaryModal({
+  eventData,
+  modalFlag,
+  onUpdateModalFlag,
+}: {
+  eventData: IEventData;
+  modalFlag: boolean;
+  onUpdateModalFlag: (flag: boolean) => void;
+}) {
+  //Diary Title
+  const [diaryTitle, setDiaryTitle] = useState<string>("");
+  const updateDiaryTitle = (title: string) => {
+    setDiaryTitle(title);
+  };
+  //Diary Description
+  const [diaryDescription, setDiaryDescription] = useState<string>("");
+  const updateDiaryDescription = (description: string) => {
+    setDiaryDescription(description);
+  };
+  //Tab control value
+  const [tabControl, setTabControl] = useState("1");
+
+  useEffect(() => {
+    setDiaryTitle(eventData.title);
+    setDiaryDescription(eventData.description);
+  }, [eventData]);
+
   //Save the diary
   const handleSave = () => {
     onUpdateModalFlag(false);
     console.log(diaryTitle);
     console.log(diaryDescription);
+    console.log(eventData);
   };
   //Close the modal
   const handleClose = () => {
@@ -65,8 +72,8 @@ export default function DiaryModal({
       >
         <Box sx={style}>
           <div>
-            {eventDate.getFullYear()}年{eventDate.getMonth() + 1}月
-            {eventDate.getDate()}日
+            {eventData.start.getFullYear()}年{eventData.start.getMonth() + 1}月
+            {eventData.start.getDate()}日
           </div>
           <TabContext value={tabControl}>
             <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
@@ -76,7 +83,9 @@ export default function DiaryModal({
             </Box>
             <TabPanel value="1">
               <DiaryForm
+                diaryTitle={diaryTitle}
                 updateDiaryTitle={updateDiaryTitle}
+                diaryDescription={diaryDescription}
                 updateDiaryDescription={updateDiaryDescription}
               />
             </TabPanel>
