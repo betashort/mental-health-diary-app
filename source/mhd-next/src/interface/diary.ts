@@ -2,7 +2,7 @@
 export interface IEventData {
   id: string;
   title: string;
-  description: string;
   start: Date;
+  description: string;
   allDay: boolean;
 }
