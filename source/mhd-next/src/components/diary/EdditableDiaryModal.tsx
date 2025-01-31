@@ -3,22 +3,10 @@ import { TabPanel, TabList, TabContext } from "@mui/lab";
 import DiaryForm from "./DiaryForm";
 import { useEffect, useState } from "react";
 import { IEventData } from "@/interface/diary";
+import { modalStyle } from "@/consts/diaryModal";
 
-  //Modal style
-  const style = {
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-    width: "90%",
-    hight: "800px",
-    bgcolor: "background.paper",
-    border: "2px solid #000",
-    boxShadow: 24,
-    p: 4,
-  };
 
-export default function DiaryModal({
+export default function EdditableDiaryModal({
   eventData,
   modalFlag,
   onUpdateModalFlag,
@@ -48,9 +36,9 @@ export default function DiaryModal({
   //Save the diary
   const handleSave = () => {
     onUpdateModalFlag(false);
-    console.log(diaryTitle);
-    console.log(diaryDescription);
-    console.log(eventData);
+  };
+  const handleDelete = () => {
+    onUpdateModalFlag(false);
   };
   //Close the modal
   const handleClose = () => {
@@ -70,7 +58,7 @@ export default function DiaryModal({
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style}>
+        <Box sx={modalStyle}>
           <div>
             {eventData.start.getFullYear()}年{eventData.start.getMonth() + 1}月
             {eventData.start.getDate()}日
@@ -91,7 +79,8 @@ export default function DiaryModal({
             </TabPanel>
           </TabContext>
           <div className="flex justify-between items-center">
-            <button onClick={handleSave}>保存する</button>
+            <button onClick={handleSave}>更新する</button>
+            <button onClick={handleDelete}>削除する</button>
             <button onClick={handleClose}>閉じる</button>
           </div>
         </Box>
