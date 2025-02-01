@@ -4,7 +4,7 @@ import DiaryForm from "./DiaryForm";
 import { useEffect, useState } from "react";
 import { IEventData } from "@/interface/diary";
 import { modalStyle } from "@/consts/diaryModal";
-import { postDiaryData } from "@/services/calendarService";
+//import { postDiaryData } from "@/services/calendarService";
 
 
 export default function EdditableDiaryModal({
@@ -37,7 +37,7 @@ export default function EdditableDiaryModal({
   //Save the diary
   const handleSave = () => {
     onUpdateModalFlag(false);
-    postDiaryData(eventData);
+    //postDiaryData(eventData);
   };
   const handleDelete = () => {
     onUpdateModalFlag(false);
