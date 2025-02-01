@@ -35,9 +35,8 @@ export default function AddableDiaryModal({
   }, [eventData]);
 
   //Save the diary
-  const handleSave = () => {
-    onUpdateModalFlag(false);
-    postDiaryData({
+  const handleSave = async () => {
+    await postDiaryData({
       id: uuidv4(),
       title: diaryTitle,
       start: eventData.start,
@@ -46,6 +45,7 @@ export default function AddableDiaryModal({
     });
     setDiaryTitle("");
     setDiaryDescription("");
+    onUpdateModalFlag(false);
   };
   //Close the modal
   const handleClose = () => {

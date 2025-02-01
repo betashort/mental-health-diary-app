@@ -47,18 +47,11 @@ export default function Diary() {
     try {
       const start = dateToYYYYMMDD(new Date(fetchInfo.start));
       const end = dateToYYYYMMDD(new Date(fetchInfo.end));
-
+      
       const response = await getDiaryDataList(start, end);
-
       successCallback(
         response.map((event) => {
-          return {
-            id: event.id,
-            title: event.title,
-            start: event.start,
-            description: event.description,
-            allDay: event.allDay,
-          };
+          return event
         })
       );
     } catch (error) {

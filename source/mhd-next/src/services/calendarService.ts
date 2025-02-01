@@ -15,7 +15,7 @@ export async function getDiaryDataList(
   await axios
     .get(url)
     .then((response) => {
-      eventDataList = response.data;
+      eventDataList = response.data.events;
     })
     .catch((error) => {
       console.log(error);
@@ -41,4 +41,8 @@ export async function postDiaryData(
     });
 
     return eventData;
+}
+
+export async function deleteDiaryData(){
+  
 }
