@@ -1,3 +1,5 @@
+import { IEventData } from "@/interface/diary";
+import { prisma } from "@/libs/prisma";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(request: NextRequest) {
@@ -5,36 +7,28 @@ export async function GET(request: NextRequest) {
   const start = searchParams.get("start");
   const end = searchParams.get("end");
   console.log(start, end);
-  
-  return NextResponse.json([
-    {
-      id: "1",
-      title: "Event1",
-      start: new Date("2025-1-1"),
-      description: "Event1 Description",
-      allDay: true,
-    },
-    {
-      id: "2",
-      title: "Event2",
-      start: new Date("2025-01-02"),
-      description: "Event2 Description",
-      allDay: true,
-    },
-    {
-      id: "3",
-      title: "Event3",
-      start: new Date("2025-01-03"),
-      description: "Event3 Description",
-      allDay: true,
-    },]
-);
+
+  try {
+    await prisma.$connect();
+    const events = await prisma.diary_event.findMany();
+
+    return NextResponse.json({events}, { status: 200 });
+  } catch (error) {
+    return NextResponse.json({ message: error}, { status: 500 });
+  } finally {
+    await prisma.$disconnect();
+  }
 }
+export async function POST(request: NextRequest) {
+  const body:IEventData = await request.json();
 
-export async function POST(request:NextRequest){
-
-  const body = await request.json();
-  return NextResponse.json(
-    body
-  );
+  try {
+    await prisma.$connect();
+    await prisma.diary_event.create({ data: body });
+    return NextResponse.json(body, { status: 200 });
+  } catch (error) {
+    return NextResponse.json({ message: error }, { status: 500 });
+  } finally {
+    prisma.$disconnect();
+  }
 }

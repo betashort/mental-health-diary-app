@@ -2,7 +2,7 @@ import { IEventData } from "@/interface/diary";
 import axios from "axios";
 
 const baseUrl = process.env.NEXT_PUBLIC_DIARY_API_URL;
-export async function getCalendarData(
+export async function getDiaryDataList(
   start: string,
   end: string
 ): Promise<IEventData[]> {
@@ -25,7 +25,7 @@ export async function getCalendarData(
   return eventDataList;
 }
 
-export async function postCalendarData(
+export async function postDiaryData(
   body: IEventData
 ): Promise<IEventData> {
   const url = baseUrl + "events";

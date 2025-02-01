@@ -13,21 +13,12 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
-  id         String       @id @unique
-  email      String       @unique
-  name       String?
-  password   String?
-  role       String?
-  DiaryEvent DiaryEvent[]
-}
-
-model DiaryEvent {
-  id          Int      @id
-  user        User     @relation(fields: [userId], references: [id])
-  userId      String
+model diary_event {
+  id          String      @id @unique
   title       String
   start       DateTime
   description String
-  allDay      Boolean
+  allDay      Boolean  @default(true)
+  created_at  DateTime @default(now())
+  updated_at  DateTime @default(now()) @updatedAt
 }

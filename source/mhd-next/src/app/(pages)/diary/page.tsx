@@ -11,7 +11,7 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import interactionPlugin, { DateClickArg } from "@fullcalendar/interaction";
 import AddableDiaryModal from "@/components/diary/AddableDiaryModal";
 import { dateToYYYYMMDD } from "@/libs/dateTransform";
-import { getCalendarData } from "@/services/calendarService";
+import { getDiaryDataList } from "@/services/calendarService";
 import { IEventData } from "@/interface/diary";
 import EdditableDiaryModal from "@/components/diary/EdditableDiaryModal";
 
@@ -48,7 +48,7 @@ export default function Diary() {
       const start = dateToYYYYMMDD(new Date(fetchInfo.start));
       const end = dateToYYYYMMDD(new Date(fetchInfo.end));
 
-      const response = await getCalendarData(start, end);
+      const response = await getDiaryDataList(start, end);
 
       successCallback(
         response.map((event) => {
