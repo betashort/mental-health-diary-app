@@ -4,7 +4,7 @@ import DiaryForm from "./DiaryForm";
 import { useEffect, useState } from "react";
 import { IEventData } from "@/interface/diary";
 import { modalStyle } from "@/consts/diaryModal";
-import { deleteDiaryData, postDiaryData, updateDiaryData } from "@/services/diaryService";
+import { deleteDiaryData, updateDiaryData } from "@/services/diaryService";
 
 
 export default function EdditableDiaryModal({
