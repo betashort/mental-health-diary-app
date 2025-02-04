@@ -244,13 +244,16 @@
 
 #### Splide
 
-* [Splide](https://ja.splidejs.com/) 
+* [Splide](https://ja.splidejs.com/)  
 
 ### ページネーション
 
 ## 認証
 
 * NextAuth
+
+* [Upgrade Guide (NextAuth.js v5)](https://authjs.dev/getting-started/migrating-to-v5)  
+* []()  
 
 ## 2. 使えるサイト
 
