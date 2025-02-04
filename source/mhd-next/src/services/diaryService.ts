@@ -2,11 +2,11 @@ import { IEventData } from "@/interface/diary";
 import axios from "axios";
 
 const baseUrl = process.env.NEXT_PUBLIC_DIARY_API_URL;
+
 export async function getDiaryDataList(
   start: string,
   end: string
 ): Promise<IEventData[]> {
-
   const queryParam = `events?start=${start}&end=${end}`;
   const url = baseUrl + queryParam;
 
@@ -25,9 +25,7 @@ export async function getDiaryDataList(
   return eventDataList;
 }
 
-export async function postDiaryData(
-  body: IEventData
-): Promise<IEventData> {
+export async function postDiaryData(body: IEventData): Promise<IEventData> {
   const url = baseUrl + "events";
   let eventData = {} as IEventData;
   await axios
@@ -40,9 +38,35 @@ export async function postDiaryData(
       eventData = {} as IEventData;
     });
 
-    return eventData;
+  return eventData;
 }
 
-export async function deleteDiaryData(){
-  
+export async function updateDiaryData(body: IEventData): Promise<IEventData> {
+  const queryParam = `events?id=${body.id}`;
+  const url = baseUrl + queryParam;
+
+  let eventData = {} as IEventData;
+  await axios
+    .put(url, body)
+    .then((response) => {
+      eventData = response.data;
+    })
+    .catch((error) => {
+      console.log(error);
+      eventData = {} as IEventData;
+    });
+
+  return eventData;
+}
+
+export async function deleteDiaryData(id: string): Promise<void> {
+  const queryParam = `events?id=${id}`;
+  const url = baseUrl + queryParam;
+
+  await axios
+    .delete(url)
+    .then(() => {})
+    .catch((error) => {
+      console.log(error);
+    });
 }

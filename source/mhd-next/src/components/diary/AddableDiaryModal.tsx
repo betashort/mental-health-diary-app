@@ -4,8 +4,8 @@ import DiaryForm from "./DiaryForm";
 import { useEffect, useState } from "react";
 import { IEventData } from "@/interface/diary";
 import { modalStyle } from "@/consts/diaryModal";
-//import { postDiaryData } from "@/services/calendarService";
-//import { v4 as uuidv4 } from "uuid"
+import { postDiaryData } from "@/services/diaryService";
+import { v4 as uuidv4 } from "uuid"
 
 export default function AddableDiaryModal({
   eventData,
@@ -36,13 +36,13 @@ export default function AddableDiaryModal({
 
   //Save the diary
   const handleSave = async () => {
-    // await postDiaryData({
-    //   id: uuidv4(),
-    //   title: diaryTitle,
-    //   start: eventData.start,
-    //   description: diaryDescription,
-    //   allDay: true,
-    // });
+    await postDiaryData({
+      id: uuidv4(),
+      title: diaryTitle,
+      start: eventData.start,
+      description: diaryDescription,
+      allDay: true,
+    });
     setDiaryTitle("");
     setDiaryDescription("");
     onUpdateModalFlag(false);

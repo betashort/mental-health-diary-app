@@ -4,7 +4,7 @@ import DiaryForm from "./DiaryForm";
 import { useEffect, useState } from "react";
 import { IEventData } from "@/interface/diary";
 import { modalStyle } from "@/consts/diaryModal";
-//import { postDiaryData } from "@/services/calendarService";
+import { deleteDiaryData, postDiaryData, updateDiaryData } from "@/services/diaryService";
 
 
 export default function EdditableDiaryModal({
@@ -35,12 +35,23 @@ export default function EdditableDiaryModal({
   }, [eventData]);
 
   //Save the diary
-  const handleSave = () => {
+  const handleUpdate = async () => {
+    await updateDiaryData({
+      id: eventData.id,
+      title: diaryTitle,
+      start: eventData.start,
+      description: diaryDescription,
+      allDay: eventData.allDay,
+    });
     onUpdateModalFlag(false);
-    //postDiaryData(eventData);
+    setDiaryTitle("");
+    setDiaryDescription("");
   };
-  const handleDelete = () => {
+  const handleDelete = async () => {
+    await deleteDiaryData(eventData.id)
     onUpdateModalFlag(false);
+    setDiaryTitle("");
+    setDiaryDescription("");
   };
   //Close the modal
   const handleClose = () => {
@@ -81,7 +92,7 @@ export default function EdditableDiaryModal({
             </TabPanel>
           </TabContext>
           <div className="flex justify-between items-center">
-            <button onClick={handleSave}>更新する</button>
+            <button onClick={handleUpdate}>更新する</button>
             <button onClick={handleDelete}>削除する</button>
             <button onClick={handleClose}>閉じる</button>
           </div>
