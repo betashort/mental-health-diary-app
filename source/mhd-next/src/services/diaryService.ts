@@ -1,8 +1,17 @@
-import { IEventData } from "@/interface/diary";
+//3rd party 
 import axios from "axios";
+//Own interface
+import { IEventData } from "@/interface/diary";
 
+//API URL
 const baseUrl = process.env.NEXT_PUBLIC_DIARY_API_URL;
 
+/**
+ * Get the diary data list
+ * @param start 
+ * @param end 
+ * @returns 
+ */
 export async function getDiaryDataList(
   start: string,
   end: string
@@ -25,6 +34,11 @@ export async function getDiaryDataList(
   return eventDataList;
 }
 
+/**
+ * 
+ * @param body 
+ * @returns 
+ */
 export async function postDiaryData(body: IEventData): Promise<IEventData> {
   const url = baseUrl + "events";
   let eventData = {} as IEventData;
@@ -41,6 +55,11 @@ export async function postDiaryData(body: IEventData): Promise<IEventData> {
   return eventData;
 }
 
+/**
+ * 
+ * @param body 
+ * @returns 
+ */
 export async function updateDiaryData(body: IEventData): Promise<IEventData> {
   const queryParam = `events?id=${body.id}`;
   const url = baseUrl + queryParam;
@@ -59,6 +78,10 @@ export async function updateDiaryData(body: IEventData): Promise<IEventData> {
   return eventData;
 }
 
+/**
+ * 
+ * @param id 
+ */
 export async function deleteDiaryData(id: string): Promise<void> {
   const queryParam = `events?id=${id}`;
   const url = baseUrl + queryParam;

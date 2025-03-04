@@ -1,6 +1,7 @@
 "use client";
+//React
 import React, { useCallback, useState } from "react";
-
+//3rd party
 import FullCalendar from "@fullcalendar/react";
 import {
   EventClickArg,
@@ -9,12 +10,20 @@ import {
 } from "@fullcalendar/core/index.js";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import interactionPlugin, { DateClickArg } from "@fullcalendar/interaction";
+//Own components
 import AddableDiaryModal from "@/components/diary/AddableDiaryModal";
-import { dateToYYYYMMDD } from "@/libs/dateTransform";
-import { getDiaryDataList } from "@/services/diaryService";
-import { IEventData } from "@/interface/diary";
 import EdditableDiaryModal from "@/components/diary/EdditableDiaryModal";
+//own library
+import { dateToYYYYMMDD } from "@/libs/dateTransform";
+//Own services
+import { getDiaryDataList } from "@/services/diaryService";
+//Own interface
+import { IEventData } from "@/interface/diary";
 
+/**
+ *
+ * @returns
+ */
 export default function Diary() {
   //modal Flag
   const [addableModalFlag, setAddableModalFlag] = useState(false);
@@ -22,12 +31,12 @@ export default function Diary() {
   const updateAddableModalFlag = (flag: boolean) => {
     setAddableModalFlag(flag);
   };
-    //modal Flag
-    const [edditableModalFlag, setEdditableModalFlag] = useState(false);
-    //modal Flag for update
-    const updateEdditableModalFlag = (flag: boolean) => {
-      setEdditableModalFlag(flag);
-    };
+  //modal Flag
+  const [edditableModalFlag, setEdditableModalFlag] = useState(false);
+  //modal Flag for update
+  const updateEdditableModalFlag = (flag: boolean) => {
+    setEdditableModalFlag(flag);
+  };
   //Event date
   const [eventData, setEventData] = useState({
     id: "",
@@ -37,8 +46,15 @@ export default function Diary() {
     allDay: true,
   } as IEventData);
 
-  //Initialise Event Data List
-  //When clicked on the prev/next button
+  /**
+   * Initialise Event Data List
+   * When clicked on the prev/next button
+   * @param fetchInfo 
+   * @param successCallback 
+   * @param failureCallback 
+   * @returns event
+   */
+
   const getEventDataList = async (
     fetchInfo: EventSourceFuncArg,
     successCallback: (eventInputs: EventInput[]) => void,
@@ -51,7 +67,7 @@ export default function Diary() {
 
       successCallback(
         response.map((event) => {
-          return event
+          return event;
         })
       );
     } catch (error) {
@@ -63,7 +79,10 @@ export default function Diary() {
     }
   };
 
-  //When clicked on the date cell
+  /**
+   * When clicked on the date cell
+   * @param
+   */
   const handleDateClick = useCallback((arg: DateClickArg) => {
     setAddableModalFlag(true);
     setEventData({
@@ -76,7 +95,10 @@ export default function Diary() {
     //react-hooks/exhaustive-deps
   }, []);
 
-  //When clicked on the event
+  /**
+   * When clicked on the event
+   * @param 
+   */
   const handleEventClick = useCallback((arg: EventClickArg) => {
     setEdditableModalFlag(true);
     setEventData({
@@ -88,7 +110,7 @@ export default function Diary() {
     });
     //react-hooks/exhaustive-deps
   }, []);
-  
+
   return (
     <div>
       <div className="DiaryCalendar h-svh">

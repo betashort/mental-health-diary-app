@@ -1,12 +1,22 @@
+//React
+import { useEffect, useState } from "react";
+//3rd party
 import { Modal, Box, Tab } from "@mui/material";
 import { TabPanel, TabList, TabContext } from "@mui/lab";
+//Own components
 import DiaryForm from "./DiaryForm";
-import { useEffect, useState } from "react";
+//Own interface
 import { IEventData } from "@/interface/diary";
+//Own consts
 import { modalStyle } from "@/consts/diaryModal";
+//Own services
 import { deleteDiaryData, updateDiaryData } from "@/services/diaryService";
 
-
+/**
+ * 
+ * @param param0 
+ * @returns 
+ */
 export default function EdditableDiaryModal({
   eventData,
   modalFlag,
@@ -34,7 +44,9 @@ export default function EdditableDiaryModal({
     setDiaryDescription(eventData.description);
   }, [eventData]);
 
-  //Save the diary
+  /**
+   * Save the diary
+   */
   const handleUpdate = async () => {
     await updateDiaryData({
       id: eventData.id,
@@ -47,6 +59,9 @@ export default function EdditableDiaryModal({
     setDiaryTitle("");
     setDiaryDescription("");
   };
+  /**
+   * 
+   */
   const handleDelete = async () => {
     await deleteDiaryData(eventData.id)
     onUpdateModalFlag(false);
@@ -54,12 +69,20 @@ export default function EdditableDiaryModal({
     setDiaryDescription("");
   };
   //Close the modal
+  /**
+   * 
+   */
   const handleClose = () => {
     onUpdateModalFlag(false);
     setDiaryTitle("");
     setDiaryDescription("");
   };
   //Tab change
+  /**
+   * 
+   * @param event 
+   * @param newValue 
+   */
   const hadleTabChange = (event: React.SyntheticEvent, newValue: string) => {
     setTabControl(newValue);
   };

@@ -1,3 +1,8 @@
+/**
+ * 
+ * @param param0 
+ * @returns 
+ */
 export default function DiaryForm({
   diaryTitle,
   updateDiaryTitle,
