@@ -29,7 +29,9 @@
   * Prisma
 * データベース
   * Supabase
-
+* OAuth
+  * Google
+  * GitHub
 * データ解析
   * Python
   * LLM
@@ -71,9 +73,9 @@
 
 #### 日記モーダル
 
-<img src="UI_Image/DiaryModal_new.png"　/>
+<img src="UI_Image/DiaryModal_new.png">
 
-<img src="UI_Image/DiaryModal_.png"　/>
+<img src="UI_Image/DiaryModal_.png">
 
 ### メンタルグラフページ
 
