@@ -36,7 +36,7 @@
 
 ### ダッシュボード(ホームページ)
 
-<img src="UI_Image/Dashboard_logoutStatus.png">
+<img src="dashboard/Dashboard_logoutStatus.png">
 
 #### 概要
 
@@ -49,19 +49,22 @@
 ### ログイン画面
 
 #### 概要
+
 * ログイン画面を表示する
 
 #### 詳細
 
+* [設計書: ログイン画面](https://github.com/betashort/mental-health-diary-app/blob/main/design/login/README.md)
+
 ### 日記アプリページ
 
-<img src="UI_Image/DiaryCalendar.png">
+<img src="diary/ui/DiaryCalendar.png">
 
 #### 概要
 
 #### 詳細
 
-* [設計書: 日記アプリ](https://github.com/betashort/mental-health-diary-app/blob/main/design/dashboard/README.md)
+* [設計書: 日記アプリ](https://github.com/betashort/mental-health-diary-app/blob/main/design/diary/README.md)
 
 ### メンタルグラフページ
 

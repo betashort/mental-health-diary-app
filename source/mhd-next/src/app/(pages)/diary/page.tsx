@@ -17,7 +17,7 @@ import EdditableDiaryModal from "@/components/diary/EdditableDiaryModal";
 import { dateToYYYYMMDD } from "@/libs/dateTransform";
 //Own services
 import { getDiaryDataList } from "@/services/diaryService";
-//Own interface
+//Own interface 
 import { IEventData } from "@/interface/diary";
 
 /**

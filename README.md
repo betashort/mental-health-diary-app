@@ -2,7 +2,7 @@
 
 ## 設計ドキュメント
 
-[設計書](https://github.com/betashort/mental-health-diary-app/blob/main/design/design.md)
+[設計書](https://github.com/betashort/mental-health-diary-app/blob/main/design/README.md)
 
 ## Research
 

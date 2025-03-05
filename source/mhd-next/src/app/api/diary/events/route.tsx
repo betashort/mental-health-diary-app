@@ -1,7 +1,19 @@
-import { IEventData } from "@/interface/diary";
-import { prisma } from "@/libs/prisma";
+//Next
 import { NextRequest, NextResponse } from "next/server";
+//3rd party
+import { prisma } from "@/libs/prisma";
+//Own interface
+import { IEventData } from "@/interface/diary";
 
+/**
+ * 
+ */
+
+/**
+ * 
+ * @param request 
+ * @returns 
+ */
 export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams;
   const start = searchParams.get("start");
@@ -35,6 +47,11 @@ export async function GET(request: NextRequest) {
     await prisma.$disconnect();
   }
 }
+/**
+ * 
+ * @param request 
+ * @returns 
+ */
 export async function POST(request: NextRequest) {
   const body: IEventData = await request.json();
 
@@ -48,7 +65,11 @@ export async function POST(request: NextRequest) {
     prisma.$disconnect();
   }
 }
-
+/**
+ * 
+ * @param request 
+ * @returns 
+ */
 export async function PUT(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams;
   const id = searchParams.get("id");
@@ -71,6 +92,11 @@ export async function PUT(request: NextRequest) {
   }
 }
 
+/**
+ * 
+ * @param request 
+ * @returns 
+ */
 export async function DELETE(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams;
   const id = searchParams.get("id");
