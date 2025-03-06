@@ -1,8 +1,8 @@
 ### ダッシュボード(ホームページ)
 
-<img src="../UI_Image/Dashboard_logoutStatus.png">
+<img src="ui/Dashboard_logoutStatus.png">
 
 * 各ページを表示する
 
-<img src="../UI_Image/Dashboard_logInStatus.png">
+<img src="ui/Dashboard_logInStatus.png">
 

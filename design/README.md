@@ -24,19 +24,19 @@
 
 <img src="architect/architect.png">
 
-| カテゴリ       | 技術スタック       |
-|--------------|----------------|
-| フロントエンド | Next.js        |
-| バックエンド   | Prisma        |
-| データベース   | Supabase      |
-| OAuth        | Google, GitHub |
-| データ解析   | Python, LLM   |
+| カテゴリ       | 技術スタック | バージョン |
+|--------------|----------------| --- |
+| フロントエンド | Next.js        | 13 | 
+| バックエンド   | Prisma        | | 
+| データベース   | Supabase      | | 
+| OAuth        | Google, GitHub | | 
+| データ解析   | Python, LLM   | | 
 
 ## 仕様/設計
 
 ### ダッシュボード(ホームページ)
 
-<img src="dashboard/Dashboard_logoutStatus.png">
+<img src="dashboard/ui/Dashboard_logoutStatus.png">
 
 #### 概要
 
