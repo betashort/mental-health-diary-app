@@ -1,12 +1,107 @@
 openapi: '3.0.3'
 info:
-  title: API Title
+  title: Mental Health Diary API
   version: '1.0'
 servers:
-  - url: https://api.server.test/v1
+  - url: api/diary/
 paths:
-  /test:
+  /events:
     get:
+      summary: Get the diary data list
+      description: Gets a list of diary events within a specified date range.
+      parameters:
+        - in: query
+          name: start
+          schema:
+            type: string
+            format: date
+          required: true
+          description: The start date for the event range.
+        - in: query
+          name: end
+          schema:
+            type: string
+            format: date
+          required: true
+          description: The end date for the event range.
       responses:
         '200':
-          description: OK
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/EventData'
+    post:
+      summary: Create a new diary entry
+      description: Creates a new diary event.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EventData'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventData'
+  /events?id={id}:
+    put:
+      summary: Update an existing diary entry
+      description: Updates an existing diary event.
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: The ID of the event to update.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EventData'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventData'
+    delete:
+      summary: Delete a diary entry
+      description: Deletes a diary event.
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: The ID of the event to delete.
+      responses:
+        '200':
+          description: Successful operation
+components:
+  schemas:
+    EventData:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The unique identifier for the event.
+        title:
+          type: string
+          description: The title of the event.
+        start:
+          type: string
+          format: date-time
+          description: The start date and time of the event.
+        end:
+          type: string
+          format: date-time
+          description: The end date and time of the event.
